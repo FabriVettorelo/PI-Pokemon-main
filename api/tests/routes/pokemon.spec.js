@@ -1,16 +1,19 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
 const { Pokemon, conn } = require('../../src/db.js');
 
 const agent = session(app);
 const pokemon = {
+  id:1,
   name: 'Pikachu',
+  hp:5,
+  attack:34,
+  defense:23,
+  image:"pikachu,jpg",
 };
 
 describe('Pokemon routes', () => {
-  before(() => conn.authenticate()
+  beforeAll(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   }));
