@@ -1,0 +1,61 @@
+.landing{
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://images.alphacoders.com/581/581224.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    min-height: 100vh;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    margin-left:80px;
+    margin-top:80px;
+    font-family: "Pokemon Classic";
+    color: rgb(0, 0, 0);
+}
+.imgcontainer{
+ display: flex;
+flex-direction: row;
+  width: 40px;
+  margin-left:270px;
+
+}
+.img{
+  height: 40px;
+  transition: 0.5s;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.img:hover{
+  border: 1px solid white;
+  background-color: brown;
+
+}
+.button{
+    width: fit-content;
+    height: fit-content;
+    font-family: 'Pokemon Solid';
+    font-size: 50px;
+    border-color: rgba(240, 248, 255, 0);
+    background-color:rgba(250, 235, 215, 0);
+  }
+  .button:hover{
+    cursor:pointer;
+  }
+  a:link, a:visited, a:active {
+    text-decoration:none;
+    transition:2s;
+    color: black;
+}
+a:hover{
+  transition:2s;
+  color: rgb(255, 251, 2);
+}

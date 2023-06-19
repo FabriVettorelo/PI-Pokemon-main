@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(https://wallpaperaccess.com/full/449895.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "Pokemon Classic";
+    color: black;
+    padding-top: 50px;
+     }
+.post{
+margin-bottom: 20px;
+color: black;
+width: 30%;
+}
+.btnHome{
+    color: black;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+.title{
+    text-align: center;
+    width: 100%;
+    color: brown;
+    margin-bottom: 20px;
+}
+.label{
+    color: black;
+    font-size: small;
+    font-family: "Pokemon Classic";
+}
+
+.form{
+    width: 70%;
+    color: black;
+}
+.divInput{
+    color: black;
+    margin:22px;
+    position: relative;
+    height: 40px; 
+}
+.error{
+    font-size: 11px;
+    color:crimson;
+    position: absolute;
+ 
+ 
+  
+}

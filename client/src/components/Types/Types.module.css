@@ -1,0 +1,25 @@
+.background{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2em;
+    background-size: cover;
+    background-image: url(https://wallpaperaccess.com/full/449895.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 93vh;
+    font-family: "Pokemon Classic";
+    padding: 10px;
+    justify-content: center;
+}
+.title{
+    margin: 0px;
+}
+.imagen img{
+    width:100vh
+}
+.link{
+ margin:0px;
+ background-color: rgb(89, 86, 86);
+ font-size: larger;
+}

@@ -1,0 +1,100 @@
+.containerPage {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background-image: url(https://wallpaperaccess.com/full/449895.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "Pokemon Classic";
+    color: black;
+  }
+  
+
+  
+  .containerImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 55%;
+    min-width: 220px;
+  }
+  
+  .image {
+    width: 60%;
+    background-color: #00000000;
+    border-radius: 50px;
+    margin-left: 10px;
+    
+  }
+  
+  .containerDetails {
+    border-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: right;
+    align-items: center;
+    width: 25%;
+    font-size: medium;
+  }
+  
+  .name {
+    font-size: 30px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    color: brown;
+    font-weight: bold;
+    text-transform: capitalize;
+  
+  }
+  
+  .otherDetail {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .loadingDetail {
+    font-size: 60px;
+    width: 100vw;
+    height: 100vh;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btnHome {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 900ms;
+    margin-top: 10px;
+  }
+  
+  label {
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-size: 20px;
+  
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    font-weight: bolder;
+    text-align: left;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .containerPage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }

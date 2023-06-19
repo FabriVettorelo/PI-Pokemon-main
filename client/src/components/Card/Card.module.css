@@ -1,0 +1,42 @@
+.listItem {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: fit-content;
+    background-color:rgba(0, 0, 0, 0.27);
+    margin:auto;
+    font-family: "Pokemon Classic";
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px 0px rgba(46, 44, 44, 0.75);
+  }
+  .listItem:hover {
+    background-color: #e5bd0d52  ;
+    transition: 1s;
+    color: rgb(15, 69, 215);
+  }
+  
+  .listItem img {
+    width: auto;
+    height: 250px;
+    object-fit:fill;
+    justify-content: center;
+    margin:5px;
+  }
+  .listItem h2 {
+    display:grid;
+    font-size: 16px;
+  }
+  .listItem h1{
+    color: aliceblue;
+  }
+  .a:hover{
+    cursor:pointer;
+  }
+  a:link, a:visited, a:active {
+    text-decoration:none;
+    transition:2s;
+    color: black;
+}
+a:hover{
+  transition:2s;
+  color: rgb(255, 2, 2);}
