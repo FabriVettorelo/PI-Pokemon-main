@@ -1,15 +1,9 @@
-// import { connect } from "react-redux";
-// import { useState , useEffect} from "react";
 import { Link , useLocation} from "react-router-dom";
 import style from './Card.module.css'
-
-// const Card = ({id,name,types,image})=>{
-//   let location = useLocation()
-  
-
 import React from "react";
 
-
+//componente card que presentara solo la imagen con el nombre y los types
+//el nombre sera un link hacia el detail correspondiente, el cual se busca mediante id
 const Card = ({id, name, types, image}) => {
     return (
         <div className={style.listItem}>

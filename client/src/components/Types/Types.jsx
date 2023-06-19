@@ -7,7 +7,8 @@ const Types = ()=>{
 
 
 const dispatch = useDispatch();
-
+//este componente fue creado como un extra para explicar los diferentes tipos de pokemons y explayar las habilidades asi como los pro y contra de cada uno
+//este traia los tipos e iba a introducir manualmente informacion extensa sobre cada type, esto requeria mucha informacion y tiempo, para simplificar se coloco una imagen donde se muestran todos los tipos y un hipervinculo que lleva a una guia donde se explica bien a fondo todo esto
 useEffect(()=>{
     dispatch(getTypes())
 },[dispatch])

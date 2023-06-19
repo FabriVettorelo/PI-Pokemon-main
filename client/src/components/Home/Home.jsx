@@ -14,42 +14,43 @@ const reload = () => {
   }
 
 const Home = () => {
-
+   //utilizamos el estado pokemon establecido en el reducer para los pokemons a presentar en el home
     const pokemons = useSelector(state=>state.pokemon)
     const dispatch = useDispatch();
     //estado para el paginado
     const [currentPage, setCurrentPage] = useState(1);
-    const elementsPerPage = 12;
+    const elementsPerPage = 12; //establezco la cantidad por pagina
     const indexOfLastElement = currentPage * elementsPerPage;
-    const indexOfFirstElement = indexOfLastElement - elementsPerPage;
+    const indexOfFirstElement = indexOfLastElement - elementsPerPage; //creo los index para el primer y ultimo item, luego ya que pokemons es un array, hago un slice para dividir lo que voy a mostrar en cada pagina
     const currentElements = pokemons?.slice(indexOfFirstElement, indexOfLastElement);
-   //para reproducir audio al filtrar
+   //para reproducir audio al filtrar 
     const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    //estado para resetear el ordenamiento
+    //estado para resetear el ordenamiento al filtrar
     const [orderFilter, setOrderFilter] = useState("norm");
-    //estados para cada filtro
+    //estados para cada filtro, esto ayuda a que no se pisen los filtros entre si y todo funcione en conjunto
    const [typeFilter,setTypeFilter]=useState("All")
    const [originFilter,setOriginFilter]=useState("All")
     
     useEffect(()=>{
         dispatch(getAllPokemon())
     },[dispatch])
-
+// HANDLERS
+    //hander para el filtro por type de pokemon
     const handleFilterType = (event)=>{
         // setCurrentPage(1)
         // dispatch(filterByType(event.target.value))
         event.preventDefault()
         setTypeFilter(event.target.value)
     };
-
+// este controla el filtro por origen
     const handleFilterOrigin = (event)=>{
         // setCurrentPage(1)
         // dispatch(filterByOrigin(event.target.value))
         event.preventDefault()
         setOriginFilter(event.target.value) 
     };
-
+//finalmente este despacha las opciones seleccionadas en ambos filtros al hacer click, tambien vuelve a la pagina 1 ya que es una nueva busqueda y necesita mostrar desde el principio, y la cantidad de paginas va a ser diferente 
     const handleFilter = ()=>{
         handleButtonClick()
         setCurrentPage(1)
@@ -58,25 +59,22 @@ const Home = () => {
             origin: originFilter
         }
         dispatch(pokemonFilter(filters))
-        setOrderFilter("norm")
+        setOrderFilter("norm") //aqui "apagamos" el ordenamiento y lo ponemos en posicion normal, que es ordenado por id ascendente
     }
-
+//este se encarga de reorganizar los items en el estado pokemon por attack o por name, solo altera el orden en que se muestran
     const handleOrder = (event)=>{
-        setCurrentPage(1)
+        setCurrentPage(1)  //tambien vuelve a la pagina 1 al iniciar un nuevo orden 
         const  selectvalue = event.target.value
         setOrderFilter(selectvalue)
         dispatch(orderBy(selectvalue))
     }
-    // const handleOrderName = (event)=>{
-    //     dispatch(orderByName(event.target.value))
-    // }
-
+    //aqui obtenemos el total de paginas haciendo la division de la cantidad de pokemons a mostrar y la cantidad que ponemos en cada pagina, en nuestro caso es 12 por pagina
     const totalPages = Math.ceil(pokemons?.length / elementsPerPage)
-
+   //este handler controla la pagina en la que estamos parados
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
       };
-
+  //este sirve para reproducir audio al hacer click en el boton de filtrado
       const handleButtonClick = () => {
         setIsPlaying(true);
         audioRef.current.play();

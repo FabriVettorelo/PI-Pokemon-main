@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('type', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER, //cada type tendra un ID, no es realmente necesario ya que puede darsele un nombre unico y ser identificado por el nombre, pero es uno de los requisitos del Readme y lo seguiremos
       autoIncrement:true,
       allowNull: false,
       primaryKey: true

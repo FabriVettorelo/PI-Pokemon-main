@@ -6,14 +6,15 @@ import style from "./Detail.module.css"
 
 const Detail = () => {
  
-  
+  //id viene por params "pokemons/:id" 
+  //utilizo el estado pokemonDetail ya establecido en el reducer, donde guardo solo el detalle a mostrar
   const {id} = useParams()
   const pokemon = useSelector(state=>state.pokemonDetail)
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPokemonDetail(id))
   },[id]);
-
           
   return(  
     <div className={style.containerPage}>

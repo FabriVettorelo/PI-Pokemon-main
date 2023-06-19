@@ -1,24 +1,27 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { useDispatch } from "react-redux";
 import { deletePokemon, getAllPokemon, postPokemon } from "../../redux/actions";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import style from "./Form.module.css"
+import soundFile from "../../audio/pokemon.mp3"
 
-
+//la funcion reload es para recargar la pagina 
 const reload = () => {
   window.location.reload(false);
 }
 
 const Form = ()=>{
-
+  //traemos el estado All Pokemon y a los creados que servira para identificarlos como opciones a eliminar
      const pokemonsall = useSelector((state)=> state.allPokemon)
      const pokemons = pokemonsall.filter((pokemon) => pokemon.created === true)
-
+    //este estado es para deshabilitar un boton
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const dispatch = useDispatch();
-    // const history = useHistory();
-    // const types = useSelector((state) => state.poketypes);
+    //estado para reproducir audios al hacer click en submit
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+    // este estado son los valores del form , asi lo veremos inicialmente vacio
     const [form,setForm] = useState({
         name:"",
         hp:0,
@@ -32,8 +35,9 @@ const Form = ()=>{
     })
 
     const [errors, setErrors] = useState({});
-
+    //necesitamos un estado con los errores para señalar cuando sea necesario hacer un cambio en el form
     const handleSelectType = (event) => {
+      //funcion para ir añadiendo los type uno a continuacion del otro, al seleccionar un type se limpia el errors por que significa que ya tenemos un type (el minimo necesario para crear un pokemon)
         const selected = event.target.value;
         setForm((form) => ({
           ...form,
@@ -45,7 +49,7 @@ const Form = ()=>{
         }));
       };
 
-
+//este handleChange agrega cada cambio en el form y realiza la validacion para ver si hay errores
     const handleChange = (event) => {
         setForm({
           ...form,
@@ -57,20 +61,20 @@ const Form = ()=>{
           )};
 
 
-
+// esta es la funcion validate la cual hara que se muestren errores en nuestro form en caso de que algo no se este cumpliendo
     const validate = (form) => {
         let errors = {};
     
         if (!form.name) {errors.name = "Name required";}
         //el nombre es obligatorio
         if (/\d/.test(form.name)) {errors.name = "Cannot contain numbers on Name";}
-        // mediante regex establecemos que no uede contener digitos del 0 al 9
+        // mediante regex establecemos que no uede contener digitos del 0 al 9, debe ser solo letras
         if (form.hp < 1 || form.hp > 200) {errors.hp = "Health Points must be between 1 and 200";}
-        //nos aseguramos que el valor de vida no sea cero
+        //nos aseguramos que el valor de vida no sea cero y no exceda 200
         if (form.attack < 1 || form.attack > 200) {errors.attack = "Attack points must be between 1 and 200";}
-        //nos aseguramos que tenga ataque
+        //nos aseguramos que tenga ataque y no exceda 200
         if (form.defense < 1 || form.defense > 200) {errors.defense = "Defense points must be between 1 and 200";}
-        //nos aseguramos que tenga defensa
+        //nos aseguramos que tenga defensa y no exceda 200
         if (form.image === "") {errors.image = "Image URL required";}
         //aqui se sube la url de la imagen
         if (form.typeId.length<=0 ) {errors.typeId = "One type is required";}
@@ -78,22 +82,20 @@ const Form = ()=>{
         return errors;
       };
 
-    // useEffect(() => {
-    //     dispatch(getTypes());
-    //   }, [dispatch]);
-
+      //al realizar el submit de los datos, handlesubmit valida que no haya errores, y se fija que el nombre no exista
       const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(validate(form))
         const error = validate(form)
         const existname = pokemonsall.find(pok => pok.name.toLowerCase()=== form.name.toLowerCase())?1:0;
-        if(existname===1){alert("This Pokemon already exists!")}
-        else if (Object.values(error).length!==0){alert("must fullfill required values")}
+        if(existname===1){alert("This Pokemon already exists!")} //en caso de que exista el nombre, avisa con un alert
+        else if (Object.values(error).length!==0){alert("must fullfill required values")} //si falta algun dato obligatorio tambien avisa con un alert
         else{
-        
-          dispatch(postPokemon(form));
-          alert("Pokemon Created!");
-          setForm({name:"",
+        //si todo esta validado y listo para crear ,se despachan los datos y se avisa con un alert que el pokemon fue creado
+        dispatch(postPokemon(form));
+        alert("Pokemon Created!");
+        handleButtonClick()
+        setForm({name:"",
           hp:0,
           attack:0,
           defense:0,
@@ -102,27 +104,35 @@ const Form = ()=>{
           weight:0,
           image:"",
           typeId:[]});
-          reload();
+          reload()
+           //se vacian los campos del form 
         }
   
       };
-
+//estado para el pokemon que va a ser eliminado
     const [delPok,setdelPok] = useState("");
-    
+//estas funciones sirven para la seleccion del pokemon a eliminar y para el submit de la accion de eliminarlo
     const handleSelectDelete = (event)=>{
       setdelPok(event.target.value)
     }
     const handleSubmitDelete = (event)=>{
       event.preventDefault();
-      if(delPok.length<=0)alert("You must select a Pokemon");
+      if(delPok.length<=0)alert("You must select a Pokemon"); //si le damos a delete sin haber seleccionado nada, un alert nos dira que necesitamos seleccionar algo si queremos eliminarlo
       else{
         dispatch(deletePokemon(delPok));
-        alert("Pokemon Deleted");
+        handleButtonClick()
+        alert("Pokemon Deleted"); //si el pokemon es eliminado exitosamente un alert nos avisa y se setea como vacio el estado de pokemons a eliminar, se refreshea la pagina
         setdelPok("");
         reload()
       }
     }
+    //este handler hace que se reproduzca el audio al hacer click
+  const handleButtonClick = () => {
+    setIsPlaying(true);
+    audioRef.current.play();
+  };
     
+    //estos son los campos requeridos en el form, los datos obligatorios, si estos campos no han sido rellenados el boton de submit no se habilita
     useEffect(() => {
         const requiredFields = [
           "name",
@@ -146,7 +156,7 @@ const Form = ()=>{
 
 
 //en el siguiente form se introduciran los datos, cada div imput contiene el label donde dice que dato se debe introducir
-// el input donde se escribe el dato y el error que se va a marcar indicando lo que se debe corregir
+// el input donde se escribe el dato y el error que se va a marcar indicando lo que se debe corregir en caso de que sea necesario
     return(
         <div className={style.container}>
     <h1 className={style.title}>Create new Pokemon!</h1>
@@ -228,6 +238,7 @@ const Form = ()=>{
   <button className={style.label} type="submit" disabled={buttonDisabled}>
       Create
   </button>
+  <audio ref={audioRef} src={soundFile} onEnded={() => setIsPlaying(false)} />
   </form>
 <hr/>
 <h2>Delete Pokemon</h2>
@@ -243,12 +254,8 @@ const Form = ()=>{
  </select>
   <button className={style.label} type="submit" >Delete</button>
 </form>
-  
-
       
 </div>
-
-
 
 
    </div>

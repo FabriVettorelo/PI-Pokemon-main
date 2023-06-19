@@ -1,16 +1,18 @@
 import { NavLink } from "react-router-dom";
 import style from "./Landing.module.css"
-import soundFile from "../../audio/pokemon.mp3"
+import soundFile from "../../audio/search.mp3"
 import { useRef, useState } from "react";
 
 const Landing = ()=>{
+  //estado para reproducir audios al hacer click en links
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
+  //este handler hace que se reproduzca el audio al hacer click
   const handleButtonClick = () => {
     setIsPlaying(true);
     audioRef.current.play();
   };
+  //este componente landing sirve como bienvenida al sitio y tiene enlaces a mi github y linkedin a modo de "about me"
     return(
         <div className={style.landing}>
         <div className={style.text}>
