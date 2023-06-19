@@ -24,8 +24,5 @@ describe('Pokemon routes', () => { //etiqueta descriptiva para nuestro bloque de
       agent.get('/pokemons').expect(200)
     );
   });
-  afterAll(() => {
-    console.log('Test summary:');
-    console.log('--------------');
-  });
+
 });

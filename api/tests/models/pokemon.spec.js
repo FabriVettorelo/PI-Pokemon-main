@@ -18,8 +18,5 @@ describe('Pokemon model', () => { //bloque de descripcion para agrupar las prueb
       });
     });
   });
-  afterAll(() => {
-    console.log('Test summary:');
-    console.log('--------------');
-  });
+  
 });

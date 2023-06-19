@@ -12,7 +12,7 @@ const getAll = async () => {
  
     const apiData = await getPokemons();
     const dbInfo = await getDb();
-    console.log(dbInfo)
+    // console.log(dbInfo)
     const allInfo =apiData.concat(dbInfo)
     return allInfo;
 };
