@@ -17,11 +17,11 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
+// aqui es donde iniciaremos la aplicacion
+const server = require('./src/app.js');//importo el servidor 
 const { conn } = require('./src/db.js');
-// Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: true }).then(() => { //sincronizamos con la DB y force true hara que se reinicien las tablas cada vez que iniciamos, para cambiar esto debemos utilizar alter:true
   server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening at 3001'); // levanta el servidor en el puerto 3001 y nos avisa
   });
 });

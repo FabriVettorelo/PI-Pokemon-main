@@ -82,6 +82,14 @@ router.get('/', async (req, res) => {
       return res.status(500).json({message:"error al eliminar el pokemon"})
     }
   })
+module.exports = router;
+
+
+
+
+
+
+
 
 //   router.put("/:id", async (req,res)=>{
 //     try {
@@ -106,4 +114,4 @@ router.get('/', async (req, res) => {
 //     }
 //  })
 
-  module.exports = router;
+  
