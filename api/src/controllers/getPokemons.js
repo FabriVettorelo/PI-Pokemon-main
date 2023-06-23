@@ -9,14 +9,11 @@ const getPokemons = async()=>{
       //traemos el gran objeto desde la api, dentro de results tenemos un array con todos los pokemons
       const pokemons = response.data.results;
       //la constante pokemons data va a tener mapeado dentro todos los pokemones del array results
-      //mediante promise.all nos aseguramos de traer completa toda la informacion que buscamos
+      //mediante promise.all nos aseguramos de traer completa toda la informacion que buscamos (array de promesas)
       const pokemonsData = await Promise.all(pokemons.map(async (pokemon) => {
-        const res = await axios.get(pokemon.url);
-    // cada res va a ser una peticion por axios a los datos de la api
-    //en el caso de type, como este es un array se le realiza un mapeo donde se saca el nombre de cada tipo
-    //de pokemon, un pokemon puede ser de mas de un tipo por lo cual juntamos el resultado con un .join
-        let tipo = res.data.types.map(e=> {
-          return{
+        const res = await axios.get(pokemon.url);           // cada res va a ser una peticion por axios a los datos de la api
+        let tipo = res.data.types.map(e=> {       //en el caso de type, como este es un array se le realiza un mapeo donde se saca el nombre de cada tipo
+          return{           //de pokemon, un pokemon puede ser de mas de un tipo por lo cual juntamos el resultado con un .join
             name:e.type.name
           }
         })

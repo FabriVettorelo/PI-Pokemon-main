@@ -10,7 +10,7 @@ const postPokemon = async(name,hp,attack,defense,speed,height,weight,image,typeI
       //nos aseguramos de haber recibido los datos requeridos
       try {
         //antes que nada, revisamos que no exista ya un pokemon con este nombre
-        const response = await axios.get("http://localhost:3001/pokemons");
+        const response = await axios.get("http://localhost:3001/pokemons");//esto sirve para poner el id nuevo pero antes nos fijamos si existe
       const existeDB = await Pokemon.findOne({where:{name}})
       const existeApi = await response.data.find(e=>e.name===name)
       if( existeApi||existeDB ){throw Error ("Ya existe este pokemon!")}
@@ -42,10 +42,10 @@ const postPokemon = async(name,hp,attack,defense,speed,height,weight,image,typeI
  // recibimos los id de los type a agregar, pero en el paso de informacion los recibimos como string, asi que los pasamos a numero 
  //luego creamos el nuevo pokemon en la DB con Create usando la plantilla obj y buscamos en la DB tabla Type todos los type que conincidan con esos
  //id que nos pasaron desde el front
-      const idnumber = typeId.map(numero=>Number(numero))
+      const idnumber = typeId.map(numero=>Number(numero)) //llegaban como string entonces los paso a numero
       const newPokemon = await Pokemon.create(obj);
      console.log(newPokemon)
-    const dbTypes = await Type.findAll({
+    const dbTypes = await Type.findAll({ //aca identifico los id que me llegaron del form, traigo los tipos de la DB
       where: {
         id: idnumber
       }

@@ -38,6 +38,7 @@ export default function SearchBar(props) {
       <input className={style.input} type='search' placeholder=' Search Pokemon name ' value ={name} onChange={(event) => handleChange(event)}/>
       <button className={style.button} type='submit' onClick={(event) => handleSubmit(event)}>Search</button>
       <audio ref={audioRef} src={soundFile} onEnded={() => setIsPlaying(false)} />
+      <button className={style.button} type='submit' onClick={(event) => props.handleFilter(event)}>Reset Search</button>
    </div>
    );
 }

@@ -32,9 +32,11 @@ const Home = () => {
    const [typeFilter,setTypeFilter]=useState("All")
    const [originFilter,setOriginFilter]=useState("All")
     
+//useeffect se encarga de los ciclos de vida del componente,y despacha la action
     useEffect(()=>{
         dispatch(getAllPokemon())
     },[dispatch])
+
 // HANDLERS
     //hander para el filtro por type de pokemon
     const handleFilterType = (event)=>{
@@ -83,7 +85,7 @@ const Home = () => {
     return (
         <div >
 
-        <div ><SearchBar onPageChange={handlePageChange}/></div>
+        <div ><SearchBar handleFilter={handleFilter} onPageChange={handlePageChange}/></div>
     <div className={style.barra}>
 <select className={style.select}  onChange={handleFilterType}>
         <option value="All">All Types</option>

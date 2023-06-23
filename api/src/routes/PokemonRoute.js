@@ -86,32 +86,4 @@ module.exports = router;
 
 
 
-
-
-
-
-
-//   router.put("/:id", async (req,res)=>{
-//     try {
-//      const pokemonId= req.params.id
-
-//     const upPokemon= await Pokemon.update({
-//      name: "",
-
-//  }, {
-//      where: {
-//          pokemonId: pokemonId,
-//          name: "",
-//      }
-//  });
-//     if(upPokemon===0){
-//      res.status(400).send("error al encontrar el pokemon")
-//     }
-//     return res.status(200).send(`El pokemon ${pokemonId} se actualizó con exito`)
-//     } catch (error) {
-//      console.error(error)
-//      return res.status(400).send("internal server error")
-//     }
-//  })
-
   

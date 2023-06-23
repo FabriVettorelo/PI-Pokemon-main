@@ -174,30 +174,30 @@ const Form = ()=>{
   
       <div className={style.divInput}>
         <label className={style.label}>Life:</label>
-        <input className={style.input} type={"number"} value={form.hp} name="hp" onChange={handleChange}/>
+        <input className={style.input} type={"number"} value={form.hp} name="hp" min="0" onChange={handleChange}/>
         {errors.hp && <p className={style.error}>{errors.hp}</p>}</div>
   
       <div className={style.divInput}>
         <label className={style.label}>Attack:</label>
-        <input className={style.input} type={"number"} value={form.attack} name="attack" onChange={handleChange}/>
+        <input className={style.input} type={"number"} value={form.attack} name="attack" min="0" onChange={handleChange}/>
         {errors.attack && <p className={style.error}>{errors.attack}</p>}</div>
   
       <div className={style.divInput}>
         <label className={style.label}>Defense:</label>
-        <input className={style.input} type={"number"} value={form.defense} name="defense" onChange={handleChange}/>
+        <input className={style.input} type={"number"} value={form.defense} name="defense" min="0" onChange={handleChange}/>
         {errors.defense && (<p className={style.error}>{errors.defense}</p> )}</div>
   
       <div className={style.divInput}>
         <label className={style.label}>Speed:</label>
-        <input className={style.input} type={"number"} value={form.speed} name="speed" onChange={handleChange}/></div>
+        <input className={style.input} type={"number"} value={form.speed} name="speed" min="0" onChange={handleChange}/></div>
   
       <div className={style.divInput}>
         <label className={style.label}>Height:</label>
-        <input className={style.input} type={"number"} value={form.height} name="height" onChange={handleChange} /></div>
+        <input className={style.input} type={"number"} value={form.height} name="height" min="0" onChange={handleChange} /></div>
   
       <div className={style.divInput}>
         <label className={style.label}>Weight:</label>
-        <input className={style.input} type={"number"} value={form.weight} name="weight" onChange={handleChange} /></div>
+        <input className={style.input} type={"number"} value={form.weight} name="weight" min="0"  onChange={handleChange} /></div>
   
       <div className={style.divInput}>
         <label className={style.label}>Image:</label>
@@ -206,7 +206,7 @@ const Form = ()=>{
   
       <div className={style.divInput}>
         <label className={style.label}>Types:</label>
-        <input className={style.input} type={"text"} value={form.typeId.join(", ")} name="typeId" readOnly={true} onChange={handleChange}/>
+        <input className={style.input} type={"text"} value={form.typeId.join(", ")} name="typeId" readOnly={true}/>
         {errors.typeId && <p className={style.error}>{errors.typeId}</p>}</div>
         
   
