@@ -1,11 +1,12 @@
 const axios = require("axios");
 const {Pokemon,Type} = require("../db.js")
+
 //vamos a traer a todos los pokemon que estan en la api
 
 const getPokemons = async()=>{
     //utilizo un limite de 60 para trabajar mas rapidamente, pero funciona igual de bien trayendo los 1281 que hay en total 
     try {
-      const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=60');
+      const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=1281');
       //traemos el gran objeto desde la api, dentro de results tenemos un array con todos los pokemons
       const pokemons = response.data.results;
       //la constante pokemons data va a tener mapeado dentro todos los pokemones del array results
@@ -27,8 +28,8 @@ const getPokemons = async()=>{
           weight: res.data.weight,
           height: res.data.height,
           types: tipo,
-          image: res.data.sprites.other.home["front_default"],
-        };
+          image: res.data.sprites.other.home["front_default"]? res.data.sprites.other.home["front_default"] :  " https://as01.epimg.net/epik/imagenes/2018/11/16/portada/1542384053_864693_1542384302_noticia_normal.jpg"
+          };
       }));
       //res.data.types.map(e=>e.type.name).join(", ")
       //las imagenes se encuentran dentro de la carpeta de sprites, los sprites son el arte utilizado para 

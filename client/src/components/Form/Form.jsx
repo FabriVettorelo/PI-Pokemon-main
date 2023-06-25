@@ -67,7 +67,7 @@ const Form = ()=>{
     
         if (!form.name) {errors.name = "Name required";}
         //el nombre es obligatorio
-        if (/\d/.test(form.name)) {errors.name = "Cannot contain numbers on Name";}
+        if (/^[0-9\s]*$/.test(form.name)) {errors.name = "Cannot contain numbers on Name or blank spaces";}
         // mediante regex establecemos que no uede contener digitos del 0 al 9, debe ser solo letras
         if (form.hp < 1 || form.hp > 200) {errors.hp = "Health Points must be between 1 and 200";}
         //nos aseguramos que el valor de vida no sea cero y no exceda 200
