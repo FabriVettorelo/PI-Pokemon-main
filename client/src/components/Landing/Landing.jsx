@@ -20,7 +20,6 @@ const Landing = ()=>{
         <h3>The definitive guide for Pokemon trainers</h3>
         <button className={style.button} onClick={handleButtonClick}><NavLink to="/home"> Access! </NavLink></button>
         <audio ref={audioRef} src={soundFile} onEnded={() => setIsPlaying(false)} />
-        </div>
 <div className={style.imgcontainer}>
         <a
             href="https://www.linkedin.com/in/fabrizio-vettorelo-0629a3263/"
@@ -37,6 +36,7 @@ const Landing = ()=>{
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png" alt="github" className={style.img} />
           </a>
 </div>
+        </div>
         </div>
     )
 }
