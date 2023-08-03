@@ -3,50 +3,53 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2em;
+    gap: 2vw;
     background-size: cover;
     background-image: url(https://wallpaperaccess.com/full/449895.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100vh;
+    height: 100vh;
     font-family: "Pokemon Classic";
-    padding: 10px;
+    padding: 1vh;
 }
 .reload{
     align-self: center;
     font-family: "Pokemon Classic";
+    font-size: 1.5vh;
     background-color: rgb(242, 255, 0);
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 .barra{
     align-self: center;
     font-family: "Pokemon Classic";
     background-color: brown;
-    padding-bottom: 10px;
+    padding-bottom: 2vh;
+    height: 3vh;
 }
 .select{
+    font-size: 1.5vh;
     align-self: center;
     font-family: "Pokemon Classic";
     background-color: rgb(255, 255, 255);
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: .5vw;
+    margin-left: .5vw;
 }   
 .pag{
     background-color: rgb(53, 53, 50);
     color: white;
     font-family: "Pokemon Classic";
-    font-size: medium;
-    padding-top: 5px;
-    padding-bottom: 5px;    
+    font-size: 1.5vh;
+    padding-top: .5vh;
+    padding-bottom: .5vh;    
 }
 .paginas{
     background-color: rgb(113, 112, 106);
     color: white;
     font-family: "Pokemon Classic";
-    font-size: medium;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    font-size: 1.5vh;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
 }
 
   a:link, a:visited, a:active {

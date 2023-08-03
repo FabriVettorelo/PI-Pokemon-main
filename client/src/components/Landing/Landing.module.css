@@ -14,20 +14,26 @@
     flex-direction: column;
     align-items: center;
     width: 25%;
-    margin-left:5rem;
-    margin-top:5rem;
+    margin-left:4vw;
+    margin-top:5vh;
     font-family: "Pokemon Classic";
     color: rgb(0, 0, 0);
 }
+.text h2{
+font-size: 3vh;
+}
+.text h3{
+  font-size: 2vh;
+  }
 .imgcontainer{
  display: flex;
 flex-direction: row;
 }
 .img{
-  height: 2.5rem;
+  height: 4vh;
   transition: 0.5s;
-  border-radius: 20px;
-  margin-right: 10px;
+  border-radius: 2vh;
+  margin-right: 1vw;
   background-color: white;
 }
 
@@ -40,7 +46,7 @@ flex-direction: row;
     width: fit-content;
     height: fit-content;
     font-family: 'Pokemon Solid';
-    font-size: 3rem;
+    font-size: 6vh;
     border-color: rgba(240, 248, 255, 0);
     background-color:rgba(250, 235, 215, 0);
   }

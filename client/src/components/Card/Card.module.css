@@ -6,7 +6,7 @@
     background-color:rgba(0, 0, 0, 0.27);
     margin:auto;
     font-family: "Pokemon Classic";
-    border-radius: 15px;
+    border-radius: 1.5vh;
     box-shadow: 10px 10px 5px 0px rgba(46, 44, 44, 0.75);
   }
   .listItem:hover {
@@ -17,14 +17,17 @@
   
   .listItem img {
     width: auto;
-    height: 250px;
+    height: 27vh;
     object-fit:fill;
     justify-content: center;
-    margin:5px;
+    margin:1vh;
   }
-  .listItem h2 {
+  .listItem h3 {
     display:grid;
-    font-size: 16px;
+    font-size: 2vh;
+  }
+  .listItem h5{
+    font-size: 1.5vh;
   }
   .listItem h1{
     color: aliceblue;

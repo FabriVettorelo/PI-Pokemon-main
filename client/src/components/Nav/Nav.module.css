@@ -1,28 +1,29 @@
 .bar{
     background-color: rgb(116, 36, 36);
     font-family: "Pokemon Classic";
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
+    height: 4.8vh;
 }
 .exit{
     background-color: rgb(0, 0, 0);
     color:white;
     font-family: "Pokemon Classic";
-    font-size: large;
-    margin-right: 10px;
-    margin-left: 1300px;
-    padding-top: 5px;
-    padding-bottom: 5px; 
+    font-size: 2vh;
+    margin-right: 1vh;
+    margin-left: 65vw;
+    padding-top: .3vh;
+    padding-bottom: .3vh; 
 }
 .input{
     background-color: rgb(0, 0, 0);
     color:white;
     font-family: "Pokemon Classic";
-    font-size: large;
-    margin-right: 10px;
-    margin-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    font-size: 2vh;
+    margin-right: .4vw;
+    margin-left: .4vw;
+    padding-top: .3vh;
+    padding-bottom: .3vh;
 }
 .input:hover{
     cursor:pointer;

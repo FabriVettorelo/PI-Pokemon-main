@@ -23,8 +23,8 @@ const Detail = () => {
        <img className={style.image} src={pokemon?.image} alt="pok" />
       </div>
      <div className={style.containerDetails}>
-       <h2 className={style.name}>Name: {pokemon?.name} </h2>
-       <h2 className={style.otherDetail}>Pokedex ID: {pokemon?.id} </h2> 
+       <h1 className={style.name}>Name: {pokemon?.name} </h1>
+       <h3 className={style.otherDetail}>Pokedex ID: {pokemon?.id} </h3> 
        <h2>HP: {pokemon?.hp}</h2>
        <h2>Attack: {pokemon?.attack}</h2>
        <h2>Defense: {pokemon?.defense}</h2>

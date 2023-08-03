@@ -10,12 +10,15 @@
     background-repeat: no-repeat;
     font-family: "Pokemon Classic";
     color: black;
-    padding-top: 50px;
+    padding-top: 4vh;
      }
 .post{
-margin-bottom: 20px;
+margin-bottom: 1vh;
 color: black;
 width: 30%;
+}
+.post img{
+    height: 40vh;
 }
 .btnHome{
     color: black;
@@ -25,7 +28,7 @@ width: 30%;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 800px;
+    width: 40vw;
     margin: 0 auto;
   }
   
@@ -33,13 +36,17 @@ width: 30%;
     text-align: center;
     width: 100%;
     color: brown;
-    margin-bottom: 20px;
+    font-size: 3vh;
+    margin-bottom: 2vh;
 }
 .label{
     color: black;
-    font-size: small;
+    font-size: 1.3vh;
     font-family: "Pokemon Classic";
+    width: 9vw;
+    height: 2.5vh;
 }
+
 
 .form{
     width: 70%;
@@ -47,15 +54,21 @@ width: 30%;
 }
 .divInput{
     color: black;
-    margin:22px;
+    margin:3vh;
     position: relative;
-    height: 40px; 
+    height: 3.5vh; 
 }
 .error{
-    font-size: 11px;
+    font-size: 1.1vh;
     color:crimson;
     position: absolute;
- 
- 
-  
+}
+.input{
+    width: 9vw;
+    height: 2.5vh;
+    font-size: 1.5vh;
+    font-family: "Pokemon Classic";
+}
+h2{
+    font-size: 2.5vh
 }
