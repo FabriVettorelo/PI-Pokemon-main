@@ -14,7 +14,7 @@ const Detail = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPokemonDetail(id))
-  },[id]);
+  },[dispatch,id]);
           
   return(  
     <div className={style.containerPage}>
