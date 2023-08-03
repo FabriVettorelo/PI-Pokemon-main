@@ -14,7 +14,8 @@
     "react-scripts": "^5.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.4.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@babel/plugin-proposal-private-property-in-object":"7.21.0-placeholder-for-preset-env.2" 
   },
   "scripts": {
     "start": "react-scripts start",
