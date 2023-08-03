@@ -13,7 +13,6 @@ useEffect(()=>{
     dispatch(getTypes())
 },[dispatch])
 
-const types = useSelector(state=>state.poketypes)
     return(
   <div className={style.background}>     
   <h2 className={style.title}>Pokemon Types</h2> 
