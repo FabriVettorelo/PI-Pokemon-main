@@ -1,6 +1,6 @@
 const { Router } = require('express'); //enrutador que define las rutas
 const PokemonsRoute = require('./PokemonRoute');
-const TypesRoute = require('./typeRoute')
+const TypesRoute = require('./TypeRoute')
 // Importar todos los routers;
 
 
