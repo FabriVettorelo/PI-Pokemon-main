@@ -2,13 +2,20 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize'); //sequelize nos sirve para comunicarnos con la DB comunica traduciendo sql con js
 const fs = require('fs'); //para leer la carpeta models
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env; //traemos los datos del .env
-
-const sequelize = new Sequelize( //conexion con la base de datos
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`, //le pasamos usuario postgres, password  y el puerto 
+//const { DB_USER, DB_PASSWORD, DB_HOST } = process.env; //para uso local
+const { DB_DEPLOY} = process.env;
+const sequelize = new Sequelize( 
+   DB_DEPLOY, 
    {
-      logging: false, // desactiva el registro de mensajes relacionados con la base de datos
-      native: false, // utiliza un controlador JavaScript puro en lugar del controlador nativo de la base de datos
+      logging: false,
+      native: false,
+      dialectOptions: {
+         acquireTimeout: 9000,
+         ssl: {
+           require: true,
+           rejectUnauthorized: false // Solo si tienes problemas con certificados autofirmados
+         }
+       } 
    }
 );
 const basename = path.basename(__filename);

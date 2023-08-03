@@ -6,7 +6,7 @@ const {Pokemon,Type} = require("../db.js")
 const getPokemons = async()=>{
     //utilizo un limite de 60 para trabajar mas rapidamente, pero funciona igual de bien trayendo los 1281 que hay en total 
     try {
-      const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=1281');
+      const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=250');
       //traemos el gran objeto desde la api, dentro de results tenemos un array con todos los pokemons
       const pokemons = response.data.results;
       //la constante pokemons data va a tener mapeado dentro todos los pokemones del array results

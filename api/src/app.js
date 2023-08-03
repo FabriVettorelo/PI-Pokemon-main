@@ -1,8 +1,8 @@
-const express = require('express'); //app tiene la responsabilidad de levantar el server
+const express = require('express'); 
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const morgan = require('morgan'); //morgan es un middleware, una funcion por la que pasa la request
-const routes = require('./routes/index.js'); //traigo las rutas de index
+const morgan = require('morgan'); 
+const routes = require('./routes/index.js'); 
 
 require('./db.js');
 //establezco el servidor
