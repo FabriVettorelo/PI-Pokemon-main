@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { getTypes } from "../../redux/actions";
 import { useEffect } from "react";
 import style from "./Types.module.css"

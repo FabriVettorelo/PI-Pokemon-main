@@ -1,6 +1,6 @@
 import { GET_ALL_POKEMON,GET_ID_DETAIL,SEARCH_NAME,GET_TYPES,DELETE_POKEMON,POST_POKEMON,FILTER_POKEMON,ORDER_BY_NAME,ORDER_BY_ATTACK } from "./action-types";
 import axios from "axios";
-axios.defaults.baseURL = 'https://pi-pokemon-main-production-28a3.up.railway.app';
+axios.defaults.baseURL = 'https://pokeback-8sch.onrender.com';
 //este axiosdefaults es para no tener que escribir todo el url en cada action
 
 export const getAllPokemon = ()=>{
@@ -44,7 +44,7 @@ export const postPokemon = (payload)=>{
     return async function (dispatch) {
         try {
           const response = await axios.post(
-            "https://pi-pokemon-main-production-28a3.up.railway.app/pokemons",
+            "https://pokeback-8sch.onrender.com/pokemons",
             payload
           );
           return dispatch({
